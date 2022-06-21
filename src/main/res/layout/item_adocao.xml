@@ -10,7 +10,6 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     >
-
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="68dp"

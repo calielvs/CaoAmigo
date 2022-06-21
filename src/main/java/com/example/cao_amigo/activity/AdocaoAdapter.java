@@ -32,7 +32,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
     String URI;
     ImageView iv;
 
-
     public AdocaoAdapter(List<NovoLarModel> adocao) {
         this.adocao = adocao;
     }
