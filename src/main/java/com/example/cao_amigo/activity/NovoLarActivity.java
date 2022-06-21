@@ -31,6 +31,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
+
 public class NovoLarActivity extends AppCompatActivity {
     //Firabase Auth e Sotrage
     //FirebaseAuth authenticacao;
