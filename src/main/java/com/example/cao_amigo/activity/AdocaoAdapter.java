@@ -44,7 +44,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
         //Picasso.with().load(animais.getUriImagem()).into(vhClass.urlImg);
         return vhClass;
     }
-
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ViewHolderClass vhClass = (ViewHolderClass) holder;
