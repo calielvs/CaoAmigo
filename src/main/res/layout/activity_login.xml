@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+
+    android:orientation="vertical"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    tools:context="com.example.cao_amigo.activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="129dp"
+        android:layout_height="116dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Cão Amigo"
+        android:textAlignment="center"
+        android:textColor="#FF9800"
+        android:textSize="38dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+
+        android:fontFamily="sans-serif"
+        android:text="Login"
+        android:textColor="#FF9800"
+        android:textSize="24dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="?android:attr/listDivider" />
+
+    <EditText
+        android:id="@+id/edtEmailLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/background_texto"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textWebEmailAddress|textPersonName"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/edtSenhaLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/background_texto"
+        android:drawableLeft="@drawable/ic_passwordlock"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPersonName|textPassword"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/btnLogar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/backdround_button"
+        android:onClick="validarAutenticacao"
+        android:text="Logar"
+        android:textColor="#FF9800" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ainda não possui cadastro? Clique no botão abaixo e cadastre-se!" />
+
+    <TextView
+        android:id="@+id/btnTelaCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="cadastrar"
+        android:text="Cadastre-se!"
+        android:textAlignment="viewEnd" />
+
+</LinearLayout>

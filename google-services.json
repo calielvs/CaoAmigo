@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "917480878737",
+    "project_id": "caoamigo-54d9d",
+    "storage_bucket": "caoamigo-54d9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917480878737:android:ce546da46a83493f064530",
+        "android_client_info": {
+          "package_name": "com.example.cao_amigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917480878737-7o2ld5bhh188t4na73vgocpioktured3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cao_amigo",
+            "certificate_hash": "8588ea6dd273344b14f3084ace6a6df701ce0bc6"
+          }
+        },
+        {
+          "client_id": "917480878737-1l3lad7moc3248dr9qg65fbc89nqlbnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOEzaBny60Io09ofqRYpptbsNYfqG18Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917480878737-1l3lad7moc3248dr9qg65fbc89nqlbnc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

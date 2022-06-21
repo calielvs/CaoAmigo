@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    tools:context="com.example.cao_amigo.activity.CadastroActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif"
+        android:text="Cadastro"
+        android:textColor="#FF9800"
+        android:textSize="24dp" />
+
+<View
+    android:id="@+id/divider"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginBottom="10dp"
+    android:background="?android:attr/listDivider" />
+
+<EditText
+    android:id="@+id/edtNome"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/background_texto"
+    android:drawableLeft="@drawable/ic_person"
+    android:drawablePadding="6dp"
+    android:ems="10"
+    android:hint="Nome completo"
+    android:inputType="textPersonName"
+    android:padding="5dp" />
+
+<EditText
+    android:id="@+id/edtEmailCad"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/background_texto"
+    android:drawableLeft="@drawable/ic_email"
+    android:drawablePadding="6dp"
+    android:ems="10"
+    android:hint="Email"
+    android:inputType="textWebEmailAddress|textPersonName"
+    android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/edtTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/background_texto"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="number|textPersonName|numberDecimal"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/edtEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/background_texto"
+        android:drawableLeft="@drawable/ic_location"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPersonName|textPostalAddress"
+        android:padding="5dp" />
+
+<EditText
+    android:id="@+id/edtSenhaCad"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/background_texto"
+    android:drawableLeft="@drawable/ic_passwordlock"
+    android:drawablePadding="6dp"
+    android:ems="10"
+    android:hint="Senha"
+    android:inputType="textPersonName|textPassword"
+    android:padding="5dp" />
+
+<EditText
+    android:id="@+id/edtConfirmSenha"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/background_texto"
+    android:drawableLeft="@drawable/ic_passwordlock"
+    android:drawablePadding="6dp"
+    android:ems="10"
+    android:hint="Confirme sua senha"
+    android:inputType="textPersonName|textPassword"
+    android:padding="5dp" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/backdround_button"
+        android:onClick="validarCampos"
+        android:text="Cadastrar"
+        android:textColor="#FF9800" />
+
+</LinearLayout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/txtUri"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="horizontal"
+    tools:context=".activity.NovoLarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        tools:context="com.example.cao_amigo.activity.CadastroActivity">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Cadastro"
+            android:textColor="#FF9800"
+            android:textSize="28dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#000000" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Informações Gerais"
+            android:textColor="#FF9800"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/edtAmigoNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_baseline_pets_24"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Nome do amigo"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/edtIdade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_idade"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Idade do amigo"
+            android:inputType="number"
+            android:padding="5dp" />
+
+
+        <EditText
+            android:id="@+id/edtAmigoRaca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_baseline_pets_24"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Raça"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/edtAmigoPeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_peso"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Peso (kg)"
+            android:inputType="number"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Caracteristicas"
+            android:textColor="#FF9800"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/edtProblemasClinicos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_problemas_clinicos"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Possui algum problema clinico?"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/edtVacinacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_vacinacao"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Alguma vacina pendente?"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/edtInformacoesAdicionais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_info_adicional"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Informações Adicionais (opcional)"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Apresentação"
+            android:textColor="#FF9800"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/edtMotivoAdocao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_motivo_adocao"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Motivo da adoção"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/edtApresentacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_apresentacao_amigo"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Breve apresentação"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#000000" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Carregue uma foto"
+            android:textColor="#FF9800"
+            android:textSize="20dp" />
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#000000" />
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/btnConhecerAmigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/backdround_button"
+            android:fontFamily="sans-serif-black"
+            android:onClick="abrirGaleria"
+            android:text="Galeria"
+            android:textAlignment="center"
+            android:textColor="#FF9800" />
+
+        <Button
+            android:id="@+id/btnCarregarFt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="carregarFt"
+            android:text="Carregar foto" />
+
+        <Button
+            android:id="@+id/btnCadastrarAdocao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="validarCampos"
+            android:text="Cadastrar" />
+    </LinearLayout>
+</ScrollView>
