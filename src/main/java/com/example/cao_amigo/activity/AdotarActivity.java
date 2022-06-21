@@ -22,7 +22,6 @@ public class AdotarActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AdocaoAdapter adocaoAdapter;
     DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,5 +47,7 @@ public class AdotarActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }
