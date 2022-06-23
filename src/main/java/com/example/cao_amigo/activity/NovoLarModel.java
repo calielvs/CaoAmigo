@@ -1,7 +1,9 @@
 package com.example.cao_amigo.activity;
 
 public class NovoLarModel {
-    private String uriImagem,nomeAnimal,racaAnimal,problemaClinico,vacina,infoAdicional,motivoAdocao,apresentacao,idade,peso;
+    private String uriImagem,nomeAnimal,racaAnimal,problemaClinico,vacina,infoAdicional,motivoAdocao,apresentacao,idade,peso,emailUser,ID;
+
+
 
     public void NovoLarModel(){
 
@@ -85,5 +87,18 @@ public class NovoLarModel {
 
     public void setUriImagem(String uriImagem) {
         this.uriImagem = uriImagem;
+    }
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) { this.ID = ID; }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 }

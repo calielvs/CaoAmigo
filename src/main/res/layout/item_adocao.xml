@@ -14,7 +14,7 @@
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="68dp"
-        android:layout_height="56dp"
+        android:layout_height="81dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
@@ -83,19 +83,26 @@
                     android:paddingRight="10dp"
                     android:text="TextView" />
 
-                <Button
-                    android:id="@+id/btnConhecerAmigo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/backdround_button"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Conhecer amigo"
-                    android:textAlignment="center"
-                    android:textColor="#FF9800"
-                    android:textSize="7dp" />
+
 
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+            <Button
+                android:id="@+id/btnConhecerAmigo"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:background="@drawable/backdround_button"
+                android:fontFamily="sans-serif-black"
+                android:text="Conhecer amigo"
+                android:textAlignment="center"
+                android:textColor="#FF9800"
+                android:textSize="7dp" />
         </LinearLayout>
 
         <View

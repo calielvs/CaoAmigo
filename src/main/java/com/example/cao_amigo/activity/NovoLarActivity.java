@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -35,12 +36,14 @@ import java.io.ByteArrayOutputStream;
 public class NovoLarActivity extends AppCompatActivity {
     //Firabase Auth e Sotrage
     //FirebaseAuth authenticacao;
+    FirebaseAuth auth;
     StorageReference mStorageRef;
+    FirebaseDatabase database;
     //Variaveis e construtores
     NovoLarModel novoLar;
 
     EditText campoNomeAmigo,campoIdade,campoRaca,campoPeso,campoRClinico,campoVacina,campoInfoAdd,campoMAdocao,campoBreveApre;
-    String stringTest;
+    String stringTest,emailUserSave,ID;
     ImageView img;
     Button botaoCadastrarAdocao,botaoGaleria,botaoCarregar;
     //Tipo de permissão 1001 é a permissão para a galeria
@@ -51,6 +54,7 @@ public class NovoLarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_lar);
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        auth = ConBD.FirebaseAutenticacao();
         inicializar();
     }
     //relecionar as variaveis criadas com os campos de inputText
@@ -66,6 +70,7 @@ public class NovoLarActivity extends AppCompatActivity {
         campoBreveApre = findViewById(R.id.edtApresentacao);
         botaoCadastrarAdocao = findViewById(R.id.btnCadastrarAdocao);
         img = findViewById(R.id.imgView);
+        emailUserSave = auth.getCurrentUser().getEmail();
         botaoGaleria = findViewById(R.id.btnConhecerAmigo);
     }
     //Necessário criar uma intent pois vamos abrir uma nova tela (galeria)
@@ -120,6 +125,8 @@ public class NovoLarActivity extends AppCompatActivity {
         String mAdocao = campoMAdocao.getText().toString();
         String apresentacao = campoBreveApre.getText().toString();
         String testeUri = stringTest;
+        ID = nome+"_"+idade+"_"+raca;
+
         if(!nome.isEmpty()){
             if(!idade.isEmpty()){
                 if(!raca.isEmpty()){
@@ -139,6 +146,9 @@ public class NovoLarActivity extends AppCompatActivity {
                                         novoLar.setMotivoAdocao(mAdocao);
                                         novoLar.setApresentacao(apresentacao);
                                         novoLar.setUriImagem(testeUri);
+                                        novoLar.setEmailUser(emailUserSave);
+                                        novoLar.setID(ID);
+
                                         //novoLar.setUriImagem();
 
                                         cadastrarAmigoAdocao();
@@ -174,9 +184,13 @@ public class NovoLarActivity extends AppCompatActivity {
     }
 
     public void cadastrarAmigoAdocao(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
-        ref.child("Adocao").push().setValue(novoLar);
+        //Forma antiga de cadastro
+        //ref.child("Adocao").push().setValue(novoLar);
+
+        //Cadastro definindo o ID como eu quiser
+        ref.child("Adocao").child(ID).push().setValue(novoLar);
 
     }
 

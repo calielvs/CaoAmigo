@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -67,8 +69,9 @@ public class CadastroActivity extends AppCompatActivity {
                                 usuario.setSenha(senha);
                                 usuario.setcSenha(csenha);
 
-                                cadastrarUsuario();
 
+                                cadastrarUsuario();
+                                salvarUsuarioDB();
 
 
                             }else{
@@ -118,5 +121,11 @@ public class CadastroActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void salvarUsuarioDB(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+        ref.child("Usuario").push().setValue(usuario);
     }
 }
