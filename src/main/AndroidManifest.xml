@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cao_Amigo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ActivityListarAdocaoUser"></activity>
+        <activity android:name=".activity.ConhecerAmigoActivity"></activity>
+        <activity android:name=".ActivityListarAdocaoUser" />
         <activity android:name=".activity.NovoLarActivity" />
         <activity android:name=".activity.AdotarActivity" />
         <activity android:name=".activity.LoginActivity">

@@ -92,6 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp">
+
             <Button
                 android:id="@+id/btnConhecerAmigo"
                 android:layout_width="wrap_content"
@@ -99,6 +100,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/backdround_button"
                 android:fontFamily="sans-serif-black"
+                android:onClick="telaConhecer"
                 android:text="Conhecer amigo"
                 android:textAlignment="center"
                 android:textColor="#FF9800"

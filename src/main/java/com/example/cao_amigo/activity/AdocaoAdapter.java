@@ -2,6 +2,7 @@ package com.example.cao_amigo.activity;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.NoCopySpan;
@@ -38,6 +39,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
     String UrlImagem;
 
     public AdocaoAdapter(List<NovoLarModel> adocao) {
+
         this.adocao = adocao;
     }
 
@@ -56,12 +58,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
         vhClass.tvRaca.setText(animais.getRacaAnimal());
         vhClass.tvIdade.setText(animais.getIdade());
         vhClass.ID.setText(animais.getID());
-        /*vhClass.botaoConhecerAmigo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
         //Estou armazenando a URL da imagem dentro desta variavel URI para posteriormente utilizar a biblioteca picasso para fazer a exibição
         UrlImagem = animais.getUriImagem();
 
@@ -91,6 +87,8 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
             botaoConhecerAmigo = itemView.findViewById(R.id.btnConhecerAmigo);
         }
     }
+
+
 
 
 

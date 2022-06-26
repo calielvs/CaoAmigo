@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.cao_amigo.R;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +24,7 @@ public class AdotarActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AdocaoAdapter adocaoAdapter;
     DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,16 +34,6 @@ public class AdotarActivity extends AppCompatActivity {
         animais = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
-        /*ref.child("Adocao").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dn:snapshot.getChildren()){
-                    NovoLarModel u = dn.getValue(NovoLarModel.class);
-                    animais.add(u);
-                }
-                adocaoAdapter = new AdocaoAdapter(animais);
-                recyclerView.setAdapter(adocaoAdapter);
-            }*/
         ref.child("Adocao").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,8 +42,6 @@ public class AdotarActivity extends AppCompatActivity {
                         NovoLarModel u = dn.getValue(NovoLarModel.class);
                         u.setID(uid);
                         animais.add(u);
-                        //NovoLarModel b = dn.getValue(NovoLarModel.class);
-                        //animais.add(b);
                     }
                     adocaoAdapter = new AdocaoAdapter(animais);
                     recyclerView.setAdapter(adocaoAdapter);
@@ -63,5 +54,10 @@ public class AdotarActivity extends AppCompatActivity {
         });
 
 
+
+    }
+    public void telaConhecer(View view){
+        Intent i = new Intent(this,ConhecerAmigoActivity.class);
+        startActivity(i);
     }
 }
