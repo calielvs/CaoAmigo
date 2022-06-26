@@ -31,7 +31,7 @@ public class AdotarActivity extends AppCompatActivity {
         animais = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
-        ref.child("Adocao").addListenerForSingleValueEvent(new ValueEventListener() {
+        /*ref.child("Adocao").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dn:snapshot.getChildren()){
@@ -40,7 +40,21 @@ public class AdotarActivity extends AppCompatActivity {
                 }
                 adocaoAdapter = new AdocaoAdapter(animais);
                 recyclerView.setAdapter(adocaoAdapter);
-            }
+            }*/
+        ref.child("Adocao").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot dn:snapshot.getChildren()){
+                        String uid = dn.getKey();
+                        NovoLarModel u = dn.getValue(NovoLarModel.class);
+                        u.setID(uid);
+                        animais.add(u);
+                        //NovoLarModel b = dn.getValue(NovoLarModel.class);
+                        //animais.add(b);
+                    }
+                    adocaoAdapter = new AdocaoAdapter(animais);
+                    recyclerView.setAdapter(adocaoAdapter);
+                }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

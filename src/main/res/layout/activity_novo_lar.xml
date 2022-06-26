@@ -98,7 +98,41 @@
             android:hint="Peso (kg)"
             android:inputType="number"
             android:padding="5dp" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Informações de contato"
+            android:textColor="#FF9800"
+            android:textSize="20dp" />
 
+        <EditText
+            android:id="@+id/edtContato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Contato"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/edtEndNovoLar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_texto"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawablePadding="6dp"
+            android:ems="10"
+            android:hint="Endereco"
+            android:inputType="textPersonName"
+            android:padding="5dp" />
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"

@@ -24,13 +24,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class NovoLarActivity extends AppCompatActivity {
@@ -39,11 +44,14 @@ public class NovoLarActivity extends AppCompatActivity {
     FirebaseAuth auth;
     StorageReference mStorageRef;
     FirebaseDatabase database;
+    DatabaseReference rootDatabaseref;
+    List<NovoLarModel> animais;
+
     //Variaveis e construtores
     NovoLarModel novoLar;
 
-    EditText campoNomeAmigo,campoIdade,campoRaca,campoPeso,campoRClinico,campoVacina,campoInfoAdd,campoMAdocao,campoBreveApre;
-    String stringTest,emailUserSave,ID;
+    EditText campoNomeAmigo,campoIdade,campoRaca,campoPeso,campoRClinico,campoVacina,campoInfoAdd,campoMAdocao,campoBreveApre,campoEndereco,campoTelefone;
+    String stringTest,emailUserSave,ID,adotado;
     ImageView img;
     Button botaoCadastrarAdocao,botaoGaleria,botaoCarregar;
     //Tipo de permissão 1001 é a permissão para a galeria
@@ -54,6 +62,7 @@ public class NovoLarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_lar);
         mStorageRef = FirebaseStorage.getInstance().getReference();
+
         auth = ConBD.FirebaseAutenticacao();
         inicializar();
     }
@@ -68,6 +77,8 @@ public class NovoLarActivity extends AppCompatActivity {
         campoInfoAdd =findViewById(R.id.edtInformacoesAdicionais);
         campoMAdocao =findViewById(R.id.edtMotivoAdocao);
         campoBreveApre = findViewById(R.id.edtApresentacao);
+        campoEndereco = findViewById(R.id.edtEndNovoLar);
+        campoTelefone = findViewById(R.id.edtContato);
         botaoCadastrarAdocao = findViewById(R.id.btnCadastrarAdocao);
         img = findViewById(R.id.imgView);
         emailUserSave = auth.getCurrentUser().getEmail();
@@ -125,47 +136,58 @@ public class NovoLarActivity extends AppCompatActivity {
         String mAdocao = campoMAdocao.getText().toString();
         String apresentacao = campoBreveApre.getText().toString();
         String testeUri = stringTest;
-        ID = nome+"_"+idade+"_"+raca;
+        String endereco = campoEndereco.getText().toString();
+        String telefone = campoTelefone.getText().toString();
+        adotado = "0";
 
         if(!nome.isEmpty()){
             if(!idade.isEmpty()){
                 if(!raca.isEmpty()){
                     if(!peso.isEmpty()){
-                        if(!rClinico.isEmpty()){
-                            if(!vacina.isEmpty()){
-                                if(!mAdocao.isEmpty()){
-                                    if(!apresentacao.isEmpty()){
-                                        novoLar = new NovoLarModel();
-                                        novoLar.setNomeAnimal(nome);
-                                        novoLar.setIdade(idade);
-                                        novoLar.setRacaAnimal(raca);
-                                        novoLar.setPeso(peso);
-                                        novoLar.setProblemaClinico(rClinico);
-                                        novoLar.setVacina(vacina);
-                                        novoLar.setInfoAdicional(adInfo);
-                                        novoLar.setMotivoAdocao(mAdocao);
-                                        novoLar.setApresentacao(apresentacao);
-                                        novoLar.setUriImagem(testeUri);
-                                        novoLar.setEmailUser(emailUserSave);
-                                        novoLar.setID(ID);
+                        if(!telefone.isEmpty()){
+                            if(!endereco.isEmpty()){
+                                if(!rClinico.isEmpty()){
+                                    if(!vacina.isEmpty()){
+                                        if(!mAdocao.isEmpty()){
+                                            if(!apresentacao.isEmpty()){
+                                                novoLar = new NovoLarModel();
+                                                novoLar.setNomeAnimal(nome);
+                                                novoLar.setIdade(idade);
+                                                novoLar.setRacaAnimal(raca);
+                                                novoLar.setPeso(peso);
+                                                novoLar.setProblemaClinico(rClinico);
+                                                novoLar.setVacina(vacina);
+                                                novoLar.setInfoAdicional(adInfo);
+                                                novoLar.setMotivoAdocao(mAdocao);
+                                                novoLar.setApresentacao(apresentacao);
+                                                novoLar.setUriImagem(testeUri);
+                                                novoLar.setEmailUser(emailUserSave);
+                                                novoLar.setEndereço(endereco);
+                                                novoLar.setContato(telefone);
 
-                                        //novoLar.setUriImagem();
+                                                //novoLar.setUriImagem();
 
-                                        cadastrarAmigoAdocao();
+                                                cadastrarAmigoAdocao();
 
 
 
+                                            }else{
+                                                Toast.makeText(this, "Preencha a apresentação", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }else{
+                                            Toast.makeText(this, "Preencha o motivo da adoção", Toast.LENGTH_SHORT).show();
+                                        }
                                     }else{
-                                        Toast.makeText(this, "Preencha a apresentação", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, "Preencha o campo vacinacao", Toast.LENGTH_SHORT).show();
                                     }
                                 }else{
-                                    Toast.makeText(this, "Preencha o motivo da adoção", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, "Preencha os dados clinicos", Toast.LENGTH_SHORT).show();
                                 }
                             }else{
-                                Toast.makeText(this, "Preencha o campo vacinacao", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, "Preencha o Endereço", Toast.LENGTH_SHORT).show();
                             }
                         }else{
-                            Toast.makeText(this, "Preencha os dados clinicos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Preencha o Contato", Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         Toast.makeText(this, "Preencha o peso", Toast.LENGTH_SHORT).show();
@@ -187,12 +209,12 @@ public class NovoLarActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
         //Forma antiga de cadastro
-        //ref.child("Adocao").push().setValue(novoLar);
+        ref.child("Adocao").push().setValue(novoLar);
+
 
         //Cadastro definindo o ID como eu quiser
-        ref.child("Adocao").child(ID).push().setValue(novoLar);
-
-    }
+        //ref.child("Adocao").child(ID).push().setValue(novoLar);
+        }
 
     public void enviarFoto(){
         Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();

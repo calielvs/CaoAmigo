@@ -1,5 +1,6 @@
 package com.example.cao_amigo.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,6 +8,7 @@ import android.text.NoCopySpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.net.Uri;
@@ -16,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cao_amigo.R;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -27,8 +30,10 @@ import java.net.URL;
 import java.util.List;
 public class AdocaoAdapter extends RecyclerView.Adapter {
 
+
     List<NovoLarModel> adocao;
     String URI;
+    String id;
     ImageView iv;
     String UrlImagem;
 
@@ -50,6 +55,13 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
         vhClass.tvNome.setText(animais.getNomeAnimal());
         vhClass.tvRaca.setText(animais.getRacaAnimal());
         vhClass.tvIdade.setText(animais.getIdade());
+        vhClass.ID.setText(animais.getID());
+        /*vhClass.botaoConhecerAmigo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
         //Estou armazenando a URL da imagem dentro desta variavel URI para posteriormente utilizar a biblioteca picasso para fazer a exibição
         UrlImagem = animais.getUriImagem();
 
@@ -59,7 +71,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
     }
 
 
-
     @Override
     public int getItemCount() {
         return adocao.size();
@@ -67,7 +78,8 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
 
     public class ViewHolderClass extends RecyclerView.ViewHolder{
         //Declaração de variaveis para o ViewHolder
-        TextView tvNome,tvRaca,tvIdade;
+        TextView tvNome,tvRaca,tvIdade,ID;
+        Button botaoConhecerAmigo;
         ImageView urlImg;
         public ViewHolderClass(@NonNull View itemView) {
             super(itemView);
@@ -75,6 +87,8 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
             tvRaca = itemView.findViewById(R.id.txtvRaca);
             tvIdade = itemView.findViewById(R.id.txtvIdade);
             urlImg = itemView.findViewById(R.id.imgView);
+            ID = itemView.findViewById(R.id.Id_adocao);
+            botaoConhecerAmigo = itemView.findViewById(R.id.btnConhecerAmigo);
         }
     }
 
