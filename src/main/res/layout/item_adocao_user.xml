@@ -87,10 +87,7 @@
                     android:layout_weight="1"
                     android:paddingRight="10dp"
                     android:text="TextView" />
-
-
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -113,21 +110,10 @@
                 android:textSize="7dp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/ID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
         <View
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
-
-        <TextView
-            android:id="@+id/testeURI"
-            android:layout_width="1dp"
-            android:layout_height="1dp" />
     </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.cao_amigo.activity;
 
-public class NovoLarModel {
+import java.io.Serializable;
+
+public class NovoLarModel implements Serializable {
     private String uriImagem,nomeAnimal,racaAnimal,problemaClinico,vacina,infoAdicional,motivoAdocao,apresentacao,idade,peso,emailUser,ID,Endereço,Contato;
 
     public void NovoLarModel(){

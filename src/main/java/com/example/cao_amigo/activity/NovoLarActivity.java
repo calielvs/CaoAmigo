@@ -210,10 +210,9 @@ public class NovoLarActivity extends AppCompatActivity {
         DatabaseReference ref = database.getReference();
         //Forma antiga de cadastro
         ref.child("Adocao").push().setValue(novoLar);
+        Toast.makeText(this, "Usuario Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
 
-        //Cadastro definindo o ID como eu quiser
-        //ref.child("Adocao").child(ID).push().setValue(novoLar);
         }
 
     public void enviarFoto(){
@@ -255,8 +254,8 @@ public class NovoLarActivity extends AppCompatActivity {
                  if(task.isSuccessful()) {
                     Uri uri = task.getResult();
                     stringTest = uri.toString();
-                    AlertDialog.Builder alerta = new AlertDialog.Builder(NovoLarActivity.this);
-                    alerta.setMessage("Teste" + stringTest).show();
+                    /*AlertDialog.Builder alerta = new AlertDialog.Builder(NovoLarActivity.this);
+                    alerta.setMessage("Teste" + stringTest).show();*/
 
                     Toast.makeText(NovoLarActivity.this, "Upload realizado com sucesso", Toast.LENGTH_SHORT).show();
                 }else{

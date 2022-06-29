@@ -46,7 +46,7 @@ public class ListarAdocaoUserAdapter extends RecyclerView.Adapter{
         vhClass.tvRaca.setText(animais.getRacaAnimal());
         vhClass.tvIdade.setText(animais.getIdade());
         vhClass.user.setText(animais.getEmailUser());
-        vhClass.ID.setText(animais.getID());
+        //vhClass.ID.setText(animais.getID());
         vhClass.botaoExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +83,7 @@ public class ListarAdocaoUserAdapter extends RecyclerView.Adapter{
             tvIdade = itemView.findViewById(R.id.txtvIdadeAU);
             urlImg = itemView.findViewById(R.id.imgViewAU);
             user = itemView.findViewById(R.id.UserLogado);
-            ID = itemView.findViewById(R.id.ID);
+            //ID = itemView.findViewById(R.id.ID);
             botaoExcluir = (Button) itemView.findViewById(R.id.btnExcluir);
         }
     }

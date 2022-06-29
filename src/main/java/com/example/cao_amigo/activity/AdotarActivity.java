@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,9 +56,5 @@ public class AdotarActivity extends AppCompatActivity {
 
 
 
-    }
-    public void telaConhecer(View view){
-        Intent i = new Intent(this,ConhecerAmigoActivity.class);
-        startActivity(i);
     }
 }

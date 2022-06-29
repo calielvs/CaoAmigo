@@ -14,10 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cao_Amigo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ConhecerAmigoActivity"></activity>
-        <activity android:name=".ActivityListarAdocaoUser" />
-        <activity android:name=".activity.NovoLarActivity" />
-        <activity android:name=".activity.AdotarActivity" />
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ActivityListarAdocaoUser" />
+        <activity android:name=".activity.NovoLarActivity" />
+        <activity android:name=".activity.AdotarActivity" />
         <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.HomeActivity" />
     </application>

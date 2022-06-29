@@ -10,9 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.net.Uri;
+import android.widget.Toast;
+
 import java.net.URI;
 
 import androidx.annotation.NonNull;
@@ -36,6 +42,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
     String URI;
     String id;
     ImageView iv;
+    Context context;
     String UrlImagem;
 
     public AdocaoAdapter(List<NovoLarModel> adocao) {
@@ -48,6 +55,8 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_adocao,parent,false);
         ViewHolderClass vhClass = new ViewHolderClass(view);
+        //Adapter não tem context para podermos usar o "This", aqui estou criando uma variavel que está armazenando o Context
+        context = parent.getContext();
         return vhClass;
     }
     @Override
@@ -57,7 +66,10 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
         vhClass.tvNome.setText(animais.getNomeAnimal());
         vhClass.tvRaca.setText(animais.getRacaAnimal());
         vhClass.tvIdade.setText(animais.getIdade());
-        vhClass.ID.setText(animais.getID());
+        //vhClass.ID.setText(animais.getID());
+        vhClass.peso.setText(animais.getPeso());
+        vhClass.endereco.setText(animais.getEndereço());
+        vhClass.contato.setText(animais.getContato());
         //Estou armazenando a URL da imagem dentro desta variavel URI para posteriormente utilizar a biblioteca picasso para fazer a exibição
         UrlImagem = animais.getUriImagem();
 
@@ -74,8 +86,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
 
     public class ViewHolderClass extends RecyclerView.ViewHolder{
         //Declaração de variaveis para o ViewHolder
-        TextView tvNome,tvRaca,tvIdade,ID;
-        Button botaoConhecerAmigo;
+        TextView tvNome,tvRaca,tvIdade,ID,peso,endereco,contato;
         ImageView urlImg;
         public ViewHolderClass(@NonNull View itemView) {
             super(itemView);
@@ -83,8 +94,10 @@ public class AdocaoAdapter extends RecyclerView.Adapter {
             tvRaca = itemView.findViewById(R.id.txtvRaca);
             tvIdade = itemView.findViewById(R.id.txtvIdade);
             urlImg = itemView.findViewById(R.id.imgView);
-            ID = itemView.findViewById(R.id.Id_adocao);
-            botaoConhecerAmigo = itemView.findViewById(R.id.btnConhecerAmigo);
+            //ID = itemView.findViewById(R.id.Id_adocao);
+            peso = itemView.findViewById(R.id.txtvPeso);
+            endereco = itemView.findViewById(R.id.txtvEnd);
+            contato = itemView.findViewById(R.id.txtvCont);
         }
     }
 
